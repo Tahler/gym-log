@@ -13,9 +13,9 @@
         android:textSize="@dimen/workout_title_text_size"/>
 
     <ListView
-        android:id="@+id/workout_set_list_view"
+        android:id="@+id/set_list_view"
         android:layout_width="0dp"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="0.65" />
 
 </LinearLayout>

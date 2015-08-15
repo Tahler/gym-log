@@ -13,7 +13,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="vertical"
@@ -41,9 +41,10 @@
         </LinearLayout>
 
         <ListView
-            android:id="@+id/session_workout_list_view"
+            android:id="@+id/workout_list_view"
             android:layout_width="match_parent"
-            android:layout_height="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0"
             android:padding="@dimen/default_padding" />
 
     </LinearLayout>

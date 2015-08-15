@@ -30,7 +30,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
             super(v);
             sessionTitle = (TextView) v.findViewById(R.id.session_title_text_view);
             sessionDate = (TextView) v.findViewById(R.id.session_date_text_view);
-            sessionWorkouts = (ListView) v.findViewById(R.id.session_workout_list_view);
+            sessionWorkouts = (ListView) v.findViewById(R.id.workout_list_view);
         }
     }
 
