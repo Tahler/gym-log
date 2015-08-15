@@ -1,23 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/workout_title_text_view"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.35"
-        android:textSize="@dimen/workout_title_text_size"/>
-
-    <!-- Imitates a list view, as we add set_list_rows to this programmatically -->
     <LinearLayout
-        android:id="@+id/set_list"
-        android:orientation="vertical"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.65" />
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/workout_title_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:textSize="@dimen/workout_title_text_size"
+            android:padding="@dimen/table_padding" />
+
+        <View
+            android:layout_width="@dimen/line_divider_width"
+            android:layout_height="match_parent"
+            android:background="@color/line_divider" />
+
+        <!-- Imitates a list view, as we add set_list_rows to this programmatically -->
+        <LinearLayout
+            android:id="@+id/set_list"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.65"
+            android:padding="@dimen/table_padding" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_divider_width"
+        android:background="@color/line_divider" />
 
 </LinearLayout>

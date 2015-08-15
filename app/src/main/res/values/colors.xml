@@ -6,4 +6,5 @@
     <!--<color name="background">#FEFEFE</color>-->
     <!-- FAFAFA FBE9E7-->
     <color name="grey">#EAEAEA</color>
+    <color name="line_divider">#aeaeae</color>
 </resources>
