@@ -67,7 +67,7 @@ public class ListSessions extends Activity {
         // use a linear layout manager
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        recyclerView.setAdapter(new SessionAdapter(sessions));
+        recyclerView.setAdapter(new SessionAdapter(this, sessions));
     }
 
     @Override

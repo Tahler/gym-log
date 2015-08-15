@@ -40,11 +40,12 @@
 
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/workout_list_view"
+        <!-- Imitates a list view, as we add workout_list_rows to this programmatically -->
+        <LinearLayout
+            android:id="@+id/workout_list"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1.0"
+            android:layout_height="wrap_content"
             android:padding="@dimen/default_padding" />
 
     </LinearLayout>

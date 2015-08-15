@@ -12,8 +12,10 @@
         android:layout_weight="0.35"
         android:textSize="@dimen/workout_title_text_size"/>
 
-    <ListView
-        android:id="@+id/set_list_view"
+    <!-- Imitates a list view, as we add set_list_rows to this programmatically -->
+    <LinearLayout
+        android:id="@+id/set_list"
+        android:orientation="vertical"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="0.65" />
