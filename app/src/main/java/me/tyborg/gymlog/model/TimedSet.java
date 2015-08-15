@@ -1,4 +1,4 @@
-package tyborg.me.gymlog.model;
+package me.tyborg.gymlog.model;
 
 /**
  * Created by Tyler Berry on 8/14/2015.

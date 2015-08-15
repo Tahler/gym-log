@@ -1,4 +1,4 @@
-package tyborg.me.gymlog.model;
+package me.tyborg.gymlog.model;
 
 import java.util.ArrayList;
 import java.util.List;
