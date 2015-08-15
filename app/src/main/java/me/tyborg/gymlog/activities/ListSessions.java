@@ -14,8 +14,11 @@ import java.util.Date;
 import java.util.List;
 
 import me.tyborg.gymlog.adapters.SessionAdapter;
+import me.tyborg.gymlog.model.ReppedSet;
 import me.tyborg.gymlog.model.Session;
 import me.tyborg.gymlog.R;
+import me.tyborg.gymlog.model.Set;
+import me.tyborg.gymlog.model.TimedSet;
 import me.tyborg.gymlog.model.WeightedSet;
 import me.tyborg.gymlog.model.Workout;
 
@@ -30,43 +33,95 @@ public class ListSessions extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_sessions);
 
-        // BEGIN DUMMY DATA
+// BEGIN DUMMY DATA
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -2);
         Date twoDaysAgo = cal.getTime();
+        cal.add(Calendar.DATE, -2);
+        Date fourDaysAgo = cal.getTime();
 
-        Session chest = new Session("Chest and Shoulders");
-        Session back = new Session("Back", twoDaysAgo);
+    // BEGIN BACK
+        Session back = new Session("Back and Legs");
 
-        Workout bench = new Workout("Bench Press");
-        bench.addSet(new WeightedSet(12, 105.0f));
-        bench.addSet(new WeightedSet(12, 105.0f));
-        bench.addSet(new WeightedSet(12, 85.0f));
-        bench.addSet(new WeightedSet(12, 85.0f));
-        chest.addWorkout(bench);
+        Workout latPulldown = new Workout("Lat Pulldown");
+        latPulldown.addSet(new WeightedSet(15, 75.0f));
+        latPulldown.addSet(new WeightedSet(15, 75.0f));
+        latPulldown.addSet(new WeightedSet(15, 90.0f));
+        latPulldown.addSet(new WeightedSet(15, 90.0f));
+        back.addWorkout(latPulldown);
+
+        Workout deadlift = new Workout("Deadlift");
+        deadlift.addSet(new WeightedSet(10, 95.0f));
+        deadlift.addSet(new WeightedSet(10, 95.0f));
+        deadlift.addSet(new WeightedSet(10, 115.0f));
+        deadlift.addSet(new WeightedSet(10, 115.0f));
+        back.addWorkout(deadlift);
+
+        Workout pullups = new Workout("Pull-Ups");
+        pullups.addSet(new ReppedSet(6));
+        pullups.addSet(new ReppedSet(5));
+        pullups.addSet(new ReppedSet(4));
+        back.addWorkout(pullups);
+
+    // END BACK
+
+    // BEGIN ARMS
+        Session arms = new Session("Arms and Abs", twoDaysAgo);
+
+        Workout barbellCurl = new Workout("Barbell Curl");
+        barbellCurl.addSet(new WeightedSet(12, 45.0f));
+        barbellCurl.addSet(new WeightedSet(12, 45.0f));
+        barbellCurl.addSet(new WeightedSet(12, 45.0f));
+        barbellCurl.addSet(new WeightedSet(12, 45.0f));
+        arms.addWorkout(barbellCurl);
+
+        Workout hammerCurl = new Workout("Dumbbell Hammer Curl");
+        hammerCurl.addSet(new WeightedSet(12, 17.0f));
+        hammerCurl.addSet(new WeightedSet(12, 15.0f));
+        hammerCurl.addSet(new WeightedSet(12, 15.0f));
+        hammerCurl.addSet(new WeightedSet(12, 15.0f));
+        arms.addWorkout(hammerCurl);
+
+        Workout plank = new Workout("Plank");
+        plank.addSet(new TimedSet(60000L));
+        plank.addSet(new TimedSet(60000L));
+        plank.addSet(new TimedSet(60000L));
+        arms.addWorkout(plank);
+    // END ARMS
+
+    // BEGIN CHEST
+        Session chest = new Session("Chest and Shoulders", fourDaysAgo);
+
+        Workout benchPress = new Workout("Bench Press");
+        benchPress.addSet(new WeightedSet(12, 105.0f));
+        benchPress.addSet(new WeightedSet(12, 105.0f));
+        benchPress.addSet(new WeightedSet(12, 85.0f));
+        benchPress.addSet(new WeightedSet(12, 85.0f));
+        chest.addWorkout(benchPress);
 
         Workout dumbbellFly = new Workout("Dumbbell Fly");
-        dumbbellFly.addSet(new WeightedSet(12, 20.0f));
-        dumbbellFly.addSet(new WeightedSet(12, 20.0f));
-        dumbbellFly.addSet(new WeightedSet(12, 20.0f));
-        dumbbellFly.addSet(new WeightedSet(12, 20.0f));
+        dumbbellFly.addSet(new WeightedSet(12, 25.0f));
+        dumbbellFly.addSet(new WeightedSet(10, 20.0f));
+        dumbbellFly.addSet(new WeightedSet(6, 20.0f));
         chest.addWorkout(dumbbellFly);
+
+        Workout dumbbellBench = new Workout("Dumbbell Bench");
+        dumbbellBench.addSet(new WeightedSet(12, 30.0f));
+        dumbbellBench.addSet(new WeightedSet(12, 30.0f));
+        dumbbellBench.addSet(new WeightedSet(12, 30.0f));
+        chest.addWorkout(dumbbellBench);
+    // END CHEST
 
         sessions = new ArrayList<>(Arrays.asList(
                 chest,
+                arms,
                 back
         ));
-        // END DUMMY DATA
+// END DUMMY DATA
 
         recyclerView = (RecyclerView) findViewById(R.id.sessions_recycler_view);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
         recyclerView.setAdapter(new SessionAdapter(this, sessions));
     }
 

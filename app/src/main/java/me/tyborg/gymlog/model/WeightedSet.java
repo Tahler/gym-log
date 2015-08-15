@@ -3,7 +3,7 @@ package me.tyborg.gymlog.model;
 /**
  * Created by Tyler Berry on 8/13/2015.
  */
-public class WeightedSet extends RepSet {
+public class WeightedSet extends ReppedSet {
     // Always stored as pounds
     private Float weight;
 
@@ -38,6 +38,6 @@ public class WeightedSet extends RepSet {
 
     @Override
     public String toString() {
-        return super.toString() + " of " + getWeight() + " lbs";
+        return getWeight() + "x" + getReps();
     }
 }

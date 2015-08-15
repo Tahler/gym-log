@@ -8,4 +8,5 @@
     <dimen name="set_entry_text_sise">16sp</dimen>
     <dimen name="line_divider_width">1dp</dimen>
     <dimen name="table_padding">8dp</dimen>
+    <dimen name="workout_number_of_sets_text_size">12sp</dimen>
 </resources>

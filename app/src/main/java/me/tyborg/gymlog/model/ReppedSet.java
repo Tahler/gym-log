@@ -4,10 +4,10 @@ package me.tyborg.gymlog.model;
  * Created by Tyler Berry on 8/13/2015.
  * Body Weight
  */
-public class RepSet extends Set {
+public class ReppedSet extends Set {
     private Integer reps;
 
-    public RepSet(Integer reps) {
+    public ReppedSet(Integer reps) {
         setReps(reps);
     }
 
@@ -22,6 +22,6 @@ public class RepSet extends Set {
 
     @Override
     public String toString() {
-        return getReps() + " reps";
+        return getReps() + "";
     }
 }

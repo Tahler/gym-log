@@ -34,7 +34,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
             super(v);
             title = (TextView) v.findViewById(R.id.session_title_text_view);
             date = (TextView) v.findViewById(R.id.session_date_text_view);
-            workoutList = (LinearLayout) v.findViewById(R.id.workout_list);
+            workoutList = (LinearLayout) v.findViewById(R.id.session_workout_list);
         }
     }
 
@@ -55,7 +55,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
     @Override
     public void onBindViewHolder(SessionViewHolder holder, int position) {
         // for each set in that workout, make a row in the right list view
-        Session session = sessions.get(position);
+        Session session = sessions.get(sessions.size() - 1 - position);
 
         holder.title.setText(session.getTitle());
         holder.date.setText(session.getFormattedDate());
@@ -67,6 +67,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
             View workoutListRow = inflater.inflate(R.layout.workout_list_row, null);
             WorkoutViewHolder workoutHolder = new WorkoutViewHolder(workoutListRow);
             workoutHolder.title.setText(workout.getTitle());
+            workoutHolder.numberOfSets.setText(workout.getNumberOfSets() + " sets");
             // for each set in this workout, add a set_list_row view to set_list
             for (Set set : workout.getSets()) {
                 LinearLayout setList = workoutHolder.setList;
@@ -91,11 +92,13 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
 
     private static class WorkoutViewHolder {
         public TextView title;
+        public TextView numberOfSets;
         public LinearLayout setList;
 
         public WorkoutViewHolder(View v) {
             title = (TextView) v.findViewById(R.id.workout_title_text_view);
-            setList = (LinearLayout) v.findViewById(R.id.set_list);
+            numberOfSets = (TextView) v.findViewById(R.id.workout_number_of_sets_text_view);
+            setList = (LinearLayout) v.findViewById(R.id.workout_set_list);
         }
     }
 

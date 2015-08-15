@@ -23,10 +23,9 @@ public class TimedSet extends Set {
         // TODO: else throw exception?
     }
 
-    private static DateFormat df = new SimpleDateFormat("mm:ss");
+    private static DateFormat df = new SimpleDateFormat("m:ss");
     @Override
     public String toString() {
-        // TODO: theres no way this formats correctly
         return df.format(new Date(milliseconds));
     }
 }

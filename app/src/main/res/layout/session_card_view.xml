@@ -42,11 +42,10 @@
 
         <!-- Imitates a list view, as we add workout_list_rows to this programmatically -->
         <LinearLayout
-            android:id="@+id/workout_list"
+            android:id="@+id/session_workout_list"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/default_padding" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

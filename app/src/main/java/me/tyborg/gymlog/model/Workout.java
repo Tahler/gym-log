@@ -30,4 +30,8 @@ public class Workout {
     public void addSet(Set set) {
         sets.add(set);
     }
+
+    public Integer getNumberOfSets() {
+        return sets.size();
+    }
 }
