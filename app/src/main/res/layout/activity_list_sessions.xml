@@ -10,8 +10,8 @@
         android:scrollbarStyle="outsideOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/default_padding"
-        android:paddingRight="@dimen/default_padding"
+        android:paddingLeft="@dimen/card_margin"
+        android:paddingRight="@dimen/card_margin"
         android:paddingBottom="@dimen/card_margin"
         android:clipToPadding="false" />
 
