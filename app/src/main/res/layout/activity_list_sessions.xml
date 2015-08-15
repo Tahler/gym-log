@@ -7,11 +7,12 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/sessions_recycler_view"
         android:scrollbars="vertical"
+        android:scrollbarStyle="outsideOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingLeft="@dimen/default_padding"
         android:paddingRight="@dimen/default_padding"
-        android:paddingTop="@dimen/default_padding"
-        android:paddingBottom="@dimen/default_padding" />
+        android:paddingBottom="@dimen/card_margin"
+        android:clipToPadding="false" />
 
 </RelativeLayout>
