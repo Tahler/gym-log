@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/card_height"
+    android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/card_margin"
     android:layout_gravity="center"
     card_view:cardCornerRadius="4dp"
@@ -40,11 +40,11 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <ListView
+            android:id="@+id/session_workout_list_view"
             android:layout_width="match_parent"
-            android:layout_height="0dp">
-
-        </RelativeLayout>
+            android:layout_height="fill_parent"
+            android:padding="@dimen/default_padding" />
 
     </LinearLayout>
 

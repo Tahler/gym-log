@@ -19,4 +19,9 @@ public class RepSet extends Set {
         if (reps > 0) this.reps = reps;
         // TODO: else throw exception?
     }
+
+    @Override
+    public String toString() {
+        return getReps() + " reps";
+    }
 }

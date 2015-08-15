@@ -16,26 +16,47 @@ import java.util.List;
 import me.tyborg.gymlog.adapters.SessionAdapter;
 import me.tyborg.gymlog.model.Session;
 import me.tyborg.gymlog.R;
+import me.tyborg.gymlog.model.WeightedSet;
+import me.tyborg.gymlog.model.Workout;
 
 public class ListSessions extends Activity {
-
-    private List<Session> sessions;
-
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
+
+    private List<Session> sessions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_sessions);
 
+        // BEGIN DUMMY DATA
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.DATE, -2);
         Date twoDaysAgo = cal.getTime();
+
+        Session chest = new Session("Chest and Shoulders");
+        Session back = new Session("Back", twoDaysAgo);
+
+        Workout bench = new Workout("Bench Press");
+        bench.addSet(new WeightedSet(12, 105.0f));
+        bench.addSet(new WeightedSet(12, 105.0f));
+        bench.addSet(new WeightedSet(12, 85.0f));
+        bench.addSet(new WeightedSet(12, 85.0f));
+        chest.addWorkout(bench);
+
+        Workout dumbbellFly = new Workout("Dumbbell Fly");
+        dumbbellFly.addSet(new WeightedSet(12, 20.0f));
+        dumbbellFly.addSet(new WeightedSet(12, 20.0f));
+        dumbbellFly.addSet(new WeightedSet(12, 20.0f));
+        dumbbellFly.addSet(new WeightedSet(12, 20.0f));
+        chest.addWorkout(dumbbellFly);
+
         sessions = new ArrayList<>(Arrays.asList(
-                new Session("Chest and Shoulders"),
-                new Session("Back", twoDaysAgo)
+                chest,
+                back
         ));
+        // END DUMMY DATA
 
         recyclerView = (RecyclerView) findViewById(R.id.sessions_recycler_view);
 
@@ -46,8 +67,7 @@ public class ListSessions extends Activity {
         // use a linear layout manager
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new SessionAdapter(sessions);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(new SessionAdapter(sessions));
     }
 
     @Override

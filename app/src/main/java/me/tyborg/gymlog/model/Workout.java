@@ -23,6 +23,10 @@ public class Workout {
         this.title = title;
     }
 
+    public List<Set> getSets() {
+        return sets;
+    }
+
     public void addSet(Set set) {
         sets.add(set);
     }

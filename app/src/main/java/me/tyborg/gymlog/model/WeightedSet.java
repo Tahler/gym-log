@@ -35,4 +35,9 @@ public class WeightedSet extends RepSet {
     private Float convertToPounds(Float mass) {
         return mass * 2.20462f;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " of " + getWeight() + " lbs";
+    }
 }

@@ -47,6 +47,10 @@ public class Session {
         return df.format(date);
     }
 
+    public List<Workout> getWorkouts() {
+        return workouts;
+    }
+
     public void addWorkout(Workout workout) {
         workouts.add(workout);
     }
