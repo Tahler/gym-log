@@ -11,10 +11,4 @@
         <!--   theme UI controls like checkboxes and text fields -->
         <!--<item name="android:colorAccent">@color/accent</item>-->
     </style>
-
-    <color name="primary_dark">#D84315</color>
-    <color name="primary">#FF5722</color>
-    <color name="text">#111111</color>
-    <!--<color name="background">#FEFEFE</color>-->
-    <!-- FAFAFA FBE9E7-->
 </resources>
