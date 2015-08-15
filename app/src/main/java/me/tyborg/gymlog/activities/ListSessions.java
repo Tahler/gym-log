@@ -9,6 +9,8 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import me.tyborg.gymlog.adapters.SessionAdapter;
@@ -27,9 +29,12 @@ public class ListSessions extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_sessions);
 
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE, -2);
+        Date twoDaysAgo = cal.getTime();
         sessions = new ArrayList<>(Arrays.asList(
                 new Session("Chest and Shoulders"),
-                new Session("Back")
+                new Session("Back", twoDaysAgo)
         ));
 
         recyclerView = (RecyclerView) findViewById(R.id.sessions_recycler_view);
