@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Tyler Berry on 8/13/2015.
  */
-public class Session {
+public class Session implements Comparable<Session> {
     private String title;
     private Date date;
     private List<Workout> workouts;
@@ -55,5 +55,10 @@ public class Session {
 
     public void addWorkout(Workout workout) {
         workouts.add(workout);
+    }
+
+    @Override
+    public int compareTo(Session other) {
+        return this.getDate().compareTo(other.getDate());
     }
 }

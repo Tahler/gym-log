@@ -6,10 +6,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.DateSorter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -23,10 +25,8 @@ import me.tyborg.gymlog.model.WeightedSet;
 import me.tyborg.gymlog.model.Workout;
 
 public class ListSessions extends Activity {
-    private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
-
     private List<Session> sessions;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +117,9 @@ public class ListSessions extends Activity {
                 arms,
                 back
         ));
+
+        Collections.sort(sessions);
+        Collections.reverse(sessions);
 // END DUMMY DATA
 
         recyclerView = (RecyclerView) findViewById(R.id.sessions_recycler_view);
@@ -137,8 +140,12 @@ public class ListSessions extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
+        switch (item.getItemId()) {
+            case R.id.action_add_session:
+                break;
+            case R.id.action_filter:
+                break;
+        }
 //        if (id == R.id.action_settings) {
 //            return true;
 //        }

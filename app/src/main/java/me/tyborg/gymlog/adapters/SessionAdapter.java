@@ -55,7 +55,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.SessionV
     @Override
     public void onBindViewHolder(SessionViewHolder holder, int position) {
         // for each set in that workout, make a row in the right list view
-        Session session = sessions.get(sessions.size() - 1 - position);
+        Session session = sessions.get(position);
 
         holder.title.setText(session.getTitle());
         holder.date.setText(session.getFormattedDate());
