@@ -1,5 +1,6 @@
 package me.tyborg.gymlog.activities;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +18,13 @@ public class CreateSession extends Activity {
 
         Intent intent = getIntent();
         if (intent != null) {
-            getActionBar().setTitle(intent.getStringExtra("title"));
+            String title = intent.getStringExtra("title");
+            if (title != null) {
+                ActionBar actionBar = getActionBar();
+                if (actionBar != null) {
+                    getActionBar().setTitle(title);
+                }
+            }
         }
     }
 }

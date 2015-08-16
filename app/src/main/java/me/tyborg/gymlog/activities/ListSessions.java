@@ -173,7 +173,7 @@ public class ListSessions extends Activity {
             @Override
             public void onClick(View v) {
                 EditText titleEditText = (EditText) dialog.findViewById(R.id.new_session_title_edit_text);
-                String title = titleEditText.getText().toString();
+                String title = titleEditText.getText().toString().trim();
                 if (!title.isEmpty()) {
                     addSession(title);
                     dialog.dismiss(); // TODO: is this necessary?
