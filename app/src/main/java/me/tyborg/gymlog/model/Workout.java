@@ -20,7 +20,8 @@ public class Workout {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if (!title.isEmpty()) this.title = title;
+        else throw new IllegalArgumentException("Title cannot be empty");
     }
 
     public List<Set> getSets() {

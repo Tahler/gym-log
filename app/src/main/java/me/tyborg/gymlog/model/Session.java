@@ -31,7 +31,8 @@ public class Session {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if (!title.isEmpty()) this.title = title;
+        else throw new IllegalArgumentException("Title cannot be empty");
     }
 
     public Date getDate() {
@@ -39,7 +40,8 @@ public class Session {
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        if (date != null) this.date = date;
+        else throw new NullPointerException("Date cannot be null");
     }
 
     private static DateFormat df = new SimpleDateFormat("EEEE, MMMM dd");
