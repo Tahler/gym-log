@@ -7,4 +7,5 @@
     <string name="action_search">Search</string>
     <string name="action_settings">Settings</string>
     <string name="action_calendar">Calendar</string>
+    <string name="new_session_hint">Title (e.g. Chest and Triceps)</string>
 </resources>

@@ -1,12 +1,19 @@
 package me.tyborg.gymlog.activities;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.DateSorter;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +26,6 @@ import me.tyborg.gymlog.adapters.SessionAdapter;
 import me.tyborg.gymlog.model.ReppedSet;
 import me.tyborg.gymlog.model.Session;
 import me.tyborg.gymlog.R;
-import me.tyborg.gymlog.model.Set;
 import me.tyborg.gymlog.model.TimedSet;
 import me.tyborg.gymlog.model.WeightedSet;
 import me.tyborg.gymlog.model.Workout;
@@ -130,26 +136,55 @@ public class ListSessions extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_list_sessions, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_add_session:
+                addSessionDialog();
                 break;
             case R.id.action_filter:
                 break;
         }
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void addSessionDialog() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("New Session")
+                .setView(R.layout.new_session_dialog)
+                .setPositiveButton("Start", null)
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+
+        Button positiveButton = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        positiveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText titleEditText = (EditText) dialog.findViewById(R.id.new_session_title_edit_text);
+                String title = titleEditText.getText().toString();
+                if (!title.isEmpty()) {
+                    addSession(title);
+                    dialog.dismiss(); // TODO: is this necessary?
+                }
+            }
+        });
+    }
+
+    private void addSession(String title) {
+        Intent intent = new Intent(this, CreateSession.class);
+        intent.putExtra("title", title);
+        startActivityForResult(intent, 1);
     }
 }
